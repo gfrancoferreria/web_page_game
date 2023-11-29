@@ -1,0 +1,370 @@
+/*tipografía nasa*/
+@font-face { 
+    font-family: FuenteNasa;
+    src: url("./fuentes/nasa.otf") format("opentype");
+}
+
+/*Tipografía botones interior canvas*/
+#button {
+  font-family: FuenteNasa, Arial, sans-serif;
+}
+
+/*color de fondo y dimensiones de la página*/
+body{ 
+	background-color: #131A45;
+	width: 100%;
+	height: 100%;
+	margin: 10px 0;
+}
+
+/*movimiento de letras del título*/
+span{ 
+	margin: 0 15px;
+	line-height: .7;
+	text-shadow: 0 0 7px #FFFFFF;
+	animation: span 5s ease-in infinite alternate;
+}
+
+/*título de la página*/
+.title{ 
+	display: flex;
+	font-family: 'FuenteNasa', sans-serif;
+	font-weight: bold;
+	font-size: 45px;
+	color: #DFDFDF;
+	justify-content: center;
+	align-items: flex-start;
+	@media(max-width: 500px)
+	transform: scale(3); 
+}
+
+/*animación para la 'U' del título*/
+.letter{ 
+	height: 27px;
+	width: 38px;
+	border: 6px solid #DFDFDF;
+	border-top: 0px;
+	border-radius: 10px;
+	box-shadow:
+		 0 3px 3px -1.5px #FFFFFF,
+		inset 0 -5px 5px -0.01px #FFFFFF;
+	animation: letter 5s ease-in-out infinite alternate;
+}
+
+@keyframes span {
+	0%,30%{ margin: 0 15px; }
+	70%,100%{ margin: 0 5px; }
+}
+@keyframes letter {
+	0%,30%{ width: 27px; }
+	70%,100%{ width: 30vw; }
+}
+
+/*características del canvas*/
+canvas{ 
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+	background: rgb(0,0,0);
+}
+
+img{
+	display:none
+}
+.nodisplay{
+	display:none;
+}
+
+						/******  ESTILO PESTAÑAS  ******/
+
+
+/* estilo de la barra de pestañas */
+nav {
+  border: 6px solid #222E79;
+  background-color: #222E79; 
+  display: block;
+  text-align: center;
+}
+
+/* estilo botón de pestaña seleccionada */
+nav button {
+  font-size: 20px;
+  font-family: 'FuenteNasa', sans-serif;
+  color: #FFFFFF;
+  font-weight: bold;
+  min-width: 210px;
+  background-color: #364AC5;
+  border: none;
+  padding: 15px 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* color botón al pasar el ratón por encima */
+nav button:hover {
+  background-color: #F3863A;
+}
+
+/* color específico pestaña seleccionada */
+nav button.active {
+  background-color: #E5670F;
+  color: #192158;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 0px solid;
+  border-top: none;
+  animation: fadeEffect 1s; /* efecto fade tarda 1 segundo */
+}
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+
+					/******  PESTAÑA DE DESCRIPCION DEL JUEGO  ******/
+
+/*Color títulos*/
+h1{
+	color: #F3863A;
+    font-family: 'FuenteNasa', sans-serif;
+}	
+
+/*estilo título 1 a máquina*/				
+.maquina { 
+  color: white;
+  width: 20ch;
+  font-family: 'FuenteNasa', sans-serif;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 24px;
+}
+
+/*estilo tipo de texto 2 a máquina*/
+.maquina2 { 
+  color: white;
+  width: 100%;
+  font-family: 'FuenteNasa', sans-serif;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 18px;
+}
+
+/*estilo tipo de texto 3 a máquina*/
+.maquina3 { 
+  color: white;
+  width: 17%;
+  font-family: 'FuenteNasa', sans-serif;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid;
+  font-size: 18px;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+} 
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+/*Cohetes para la enumeración de elementos*/
+dd{ 
+	display: list-item;
+	list-style-type: "🚀";
+	padding-inline-start: 1ch;
+}
+
+
+					/******  PESTAÑA DE AUTORES  ******/				
+
+/*Características de la estructura del slider*/					
+#slider{
+  position: relative;
+  width: 50%;
+  height: 32vw;
+  margin: 150px auto;
+  color: #FFFFFF;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+/*desarrollo botones para pasar imágenes*/
+input[type=radio] {
+  position: relative;
+  top: 108%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin: 0 15px 0 0;
+  opacity: 1;
+  transform: translateX(-50px);
+  cursor: pointer;
+}
+
+
+input[type=radio]:nth-child(3) {
+  margin-right: 0px;
+}
+input[type=radio]:checked {
+  opacity: 1;
+}
+
+/*Características de cada imagen del slider*/
+#slider label,
+#slider label img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 3px;
+  display: flex;
+  justify-content: left-side;
+  transition: transform 400ms ease;
+}
+
+/*Texto responsabilidades superpuesto en las imágenes*/
+p{
+  z-index: 0;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  font-size: 25px;
+  font-family: 'FuenteNasa', sans-serif;
+  font-weight: bold;
+  color: #000000;
+  text-align: left;
+}
+
+/*Posición y sombra imagen central*/
+#s1:checked ~ #slide1,
+ #s2:checked ~ #slide2,
+  #s3:checked ~ #slide3 {
+  box-shadow: 0 13px 26px rgba(0,0,0, 0.3), 0 12px 6px rgba(0,0,0, 0.2);
+  transform: translate3d(0%, 0, 0px);
+}
+
+/*Posición y sombra imagen siguiente a la central*/
+#s1:checked ~ #slide2,
+ #s2:checked ~ #slide3,
+  #s3:checked ~ #slide1 {
+  box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+  transform: translate3d(20%, 0, -100px);
+}
+
+/*Posición y sombra imagen anterior a la central*/
+#s1:checked ~ #slide3,
+ #s2:checked ~ #slide1,
+  #s3:checked ~ #slide2 {
+  box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+  transform: translate3d(-20%, 0, -100px);
+}
+
+
+
+					
+					/******  PESTAÑA DE DESARROLLO  ******/
+					
+/*Deslizar texto hacia la izquierda */
+h2, th {
+  font-family: 'FuenteNasa', sans-serif;
+  color: #F3863A;
+  font-size: 20px;
+  -moz-animation-duration: 2.5s;
+  -webkit-animation-duration: 2.5s;
+  -moz-animation-name: slidein-left;
+  -webkit-animation-name: slidein-left;
+}
+
+h4 {
+  font-family: 'FuenteNasa', sans-serif;
+  color: white;
+  font-weight: lighter;
+  font-size: 16px;  
+  -moz-animation-duration: 2.5s;
+  -webkit-animation-duration: 2.5s;
+  -moz-animation-name: slidein-left;
+  -webkit-animation-name: slidein-left;
+}
+
+@-moz-keyframes slidein-left {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes slidein-left {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+/*estilo tabla definida al final de la pestaña*/
+.table {
+	width: 100%;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: lighter;
+	font-family: 'FuenteNasa', sans-serif;
+	border: 2px solid #DFDFDF;
+	border-collapse: separate;
+}
+
+					/******  PESTAÑA DE REFERENCIAS  ******/
+
+/* espacio botones referencias*/					
+.boton-ref{
+	padding: 15px 5px 15px 5px; /*arriba dcha abajo izda*/
+	width: 100%;
+	display: inline-block;
+}	
+					
+/* diseño botones referencias*/
+.boton-ref button {
+  color: #000000;
+  width: 33%;
+  font-family: 'FuenteNasa', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #A6B0F5; 
+  border: 2px solid #808DEB;
+  border-radius: 6px;
+  padding: 8px 8px 8px 8px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+/* diseño botones referencias al pasar el cursor por encima*/
+.boton-ref button:hover{
+  background-color: #5365E9;
+  color: #FFFFFF;
+  border: 2px solid #4559E7;
+}
+
+/* diseño botones referencias al hacer clic*/
+.boton-ref button:active{
+  background-color: #EE985B;
+  color: #000000;
+  border: 2px solid #EC8943;
+}

@@ -1,0 +1,809 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<!--Llamadas de archivo CSS y Javascript-->
+	<link rel="stylesheet" href="juegoweb.css">
+	<script src="juegoweb.js"></script>
+	<!--Título e icono pestaña-->
+	<title>SPACE JUMP</title>
+	<link rel="shortcut icon" href="./meteorito/icon.png">
+</head>
+
+<body>
+
+	<!--Título de la página-->	
+	<div class="title">
+	<span>S</span>
+	<span>P</span>
+	<span>A</span>
+	<span>C</span>
+	<span>E</span>
+	<span>J</span>
+	<span class="letter"></span>
+	<span>M</span>
+	<span>P</span>
+	<br>
+	</div>
+	
+	<!-- Creacion de distintas pestañas -->
+	<nav>
+		<button class="tablinks" onclick="openCity(event, 'Juego')" id="defaultOpen">Juego</button>
+		<button class="tablinks" onclick="openCity(event, 'Descripcion')">Descripci&oacuten del juego</button>
+		<button class="tablinks" onclick="openCity(event, 'Autores')">Autores</button>	
+		<button class="tablinks" onclick="openCity(event, 'Multimedia')">Multimedia</button>
+		<button class="tablinks" onclick="openCity(event, 'Desarrollo')">Desarrollo</button>
+		<button class="tablinks" onclick="openCity(event, 'Referencias')">Referencias</button>
+	</nav>
+	
+
+<!-- Contenido de las pestañas -->
+  
+  	<!-- Contenido de la pestaña de Juego -->
+	
+		<!--Creación canvas-->
+		<div id="Juego" class="tabcontent" style="display:block">
+		<canvas id="micanvas" width="1420" height="680">
+			Este texto se muestra para los navegadores no compatibles con canvas
+		</canvas>
+		
+		<!--carga de vídeos utilizados-->
+		<video id="video1" class="nodisplay" width = 1420 height = 640 controls muted>
+			<source src="./videos/videoaux1.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+		
+		<video id="video2" class="nodisplay" width = 1420 height = 640 controls >
+			<source src="./videos/videoaux2.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+		
+		<video id="video3" class="nodisplay" width = 1420 height = 640 controls >
+			<source src="./videos/videoaux2.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+		
+		<video id="videocharacter" class="nodisplay" width = 1420 height = 640 controls >
+			<source src="./videos/videoaux4.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+		
+		<video id="videoproblems" class="nodisplay" width = 1420 height = 640 controls >
+			<source src="./videos/problems.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+		
+		<video id="videoexplicacion" class="nodisplay" width = 1420 height = 640 controls >
+			<source src="./videos/explicacion.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+		
+		<video id="level1" class="nodisplay" width = 1420 height = 640 controls >
+			<source src="./videos/level1.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+		
+		<video id="level2" class="nodisplay" width = 1420 height = 640 controls >
+			<source src="./videos/level2.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+		
+		<video id="level3" class="nodisplay" width = 1420 height = 640 controls >
+			<source src="./videos/level3.mp4" type="video/mp4">
+			Your browser does not support HTML5 video.
+		</video>
+
+		<!--Carga de imágenes de fondo y sprites-->
+		<img id="b1" src="./background/fila-1-columna-1.jpg"> 
+		<img id="b2" src="./background/fila-1-columna-2.jpg"> 
+		<img id="b3" src="./background/fila-1-columna-3.jpg">
+		<img id="b4" src="./background/fila-1-columna-4.jpg"> 
+		<img id="b5" src="./background/fila-1-columna-5.jpg"> 
+		<img id="b6" src="./background/fila-1-columna-6.jpg"> 
+		<img id="b7" src="./background/fila-1-columna-7.jpg"> 
+		<img id="b8" src="./background/fila-1-columna-8.jpg"> 
+		<img id="b9" src="./background/fila-1-columna-9.jpg"> 
+		<img id="b10" src="./background/fila-1-columna-10.jpg"> 
+		<img id="b11" src="./background/fila-1-columna-11.jpg">
+		<img id="b12" src="./background/fila-1-columna-12.jpg"> 
+		<img id="b13" src="./background/fila-1-columna-13.jpg"> 
+		<img id="b14" src="./background/fila-1-columna-14.jpg">
+		<img id="b15" src="./background/fila-1-columna-15.jpg"> 
+		<img id="b16" src="./background/fila-1-columna-16.jpg"> 
+		<img id="b17" src="./background/fila-1-columna-17.jpg"> 
+		<img id="b18" src="./background/fila-1-columna-18.jpg"> 
+		<img id="b19" src="./background/fila-1-columna-19.jpg"> 
+		<img id="b20" src="./background/fila-1-columna-20.jpg"> 
+		<img id="b21" src="./background/fila-1-columna-21.jpg"> 
+		<img id="b22" src="./background/fila-1-columna-22.jpg"> 
+		<img id="b23" src="./background/fila-1-columna-23.jpg"> 
+		<img id="b24" src="./background/fila-1-columna-24.jpg"> 
+		<img id="b25" src="./background/fila-1-columna-25.jpg"> 
+		<img id="b26" src="./background/fila-1-columna-26.jpg"> 
+		<img id="b27" src="./background/fila-1-columna-27.jpg"> 
+		<img id="b28" src="./background/fila-1-columna-28.jpg"> 
+		<img id="b29" src="./background/fila-1-columna-29.jpg"> 
+		<img id="b30" src="./background/fila-1-columna-30.jpg"> 
+		<img id="b31" src="./background/fila-1-columna-31.jpg"> 
+		<img id="b32" src="./background/fila-1-columna-32.jpg"> 
+		<img id="b33" src="./background/fila-1-columna-33.jpg"> 
+		<img id="b34" src="./background/fila-1-columna-34.jpg"> 
+		<img id="b35" src="./background/fila-1-columna-35.jpg"> 
+		<img id="b36" src="./background/fila-1-columna-36.jpg"> 
+		<img id="b37" src="./background/fila-1-columna-37.jpg"> 
+		<img id="b38" src="./background/fila-1-columna-38.jpg"> 
+		<img id="b39" src="./background/fila-1-columna-39.jpg"> 
+		<img id="b40" src="./background/fila-1-columna-40.jpg">
+		<img id="b41" src="./background/fila-1-columna-41.jpg"> 
+		<img id="b42" src="./background/fila-1-columna-42.jpg"> 
+		<img id="b43" src="./background/fila-1-columna-43.jpg">
+		<img id="b44" src="./background/fila-1-columna-44.jpg"> 
+		<img id="b45" src="./background/fila-1-columna-45.jpg"> 
+		<img id="b46" src="./background/fila-1-columna-46.jpg"> 
+		<img id="b47" src="./background/fila-1-columna-47.jpg"> 
+		<img id="b48" src="./background/fila-1-columna-48.jpg"> 
+		<img id="b49" src="./background/fila-1-columna-49.jpg"> 
+		<img id="b50" src="./background/fila-1-columna-50.jpg"> 
+		<img id="b51" src="./background/fila-1-columna-51.jpg">
+		<img id="b52" src="./background/fila-1-columna-52.jpg"> 
+		<img id="b53" src="./background/fila-1-columna-53.jpg"> 
+		<img id="b54" src="./background/fila-1-columna-54.jpg">
+		<img id="b55" src="./background/fila-1-columna-55.jpg"> 
+		<img id="b56" src="./background/fila-1-columna-56.jpg"> 
+		<img id="b57" src="./background/fila-1-columna-57.jpg"> 
+		<img id="b58" src="./background/fila-1-columna-58.jpg"> 
+		<img id="b59" src="./background/fila-1-columna-59.jpg"> 
+		<img id="b60" src="./background/fila-1-columna-60.jpg"> 
+		<img id="b61" src="./background/fila-1-columna-61.jpg"> 
+		<img id="b62" src="./background/fila-1-columna-62.jpg"> 
+		<img id="b63" src="./background/fila-1-columna-63.jpg"> 
+		<img id="b64" src="./background/fila-1-columna-64.jpg"> 
+		<img id="b65" src="./background/fila-1-columna-65.jpg"> 
+		<img id="b66" src="./background/fila-1-columna-66.jpg"> 
+		<img id="b67" src="./background/fila-1-columna-67.jpg"> 
+		<img id="b68" src="./background/fila-1-columna-68.jpg"> 
+		<img id="b69" src="./background/fila-1-columna-69.jpg"> 
+		<img id="b70" src="./background/fila-1-columna-70.jpg"> 
+		<img id="b71" src="./background/fila-1-columna-71.jpg"> 
+		<img id="b72" src="./background/fila-1-columna-72.jpg"> 
+		<img id="b73" src="./background/fila-1-columna-73.jpg"> 
+		<img id="b74" src="./background/fila-1-columna-74.jpg"> 
+		<img id="b75" src="./background/fila-1-columna-75.jpg"> 
+		<img id="b76" src="./background/fila-1-columna-76.jpg"> 
+		<img id="b77" src="./background/fila-1-columna-77.jpg"> 
+		<img id="b78" src="./background/fila-1-columna-78.jpg"> 
+		<img id="b79" src="./background/fila-1-columna-79.jpg"> 
+		<img id="b80" src="./background/fila-1-columna-80.jpg">
+		<img id="b81" src="./background/fila-1-columna-81.jpg"> 
+		<img id="b82" src="./background/fila-1-columna-82.jpg"> 
+		<img id="b83" src="./background/fila-1-columna-83.jpg">
+		<img id="b84" src="./background/fila-1-columna-84.jpg"> 
+		<img id="b85" src="./background/fila-1-columna-85.jpg"> 
+		<img id="b86" src="./background/fila-1-columna-86.jpg"> 
+		<img id="b87" src="./background/fila-1-columna-87.jpg"> 
+		<img id="b88" src="./background/fila-1-columna-88.jpg"> 
+		<img id="b89" src="./background/fila-1-columna-89.jpg"> 
+		<img id="b90" src="./background/fila-1-columna-90.jpg"> 
+		<img id="b91" src="./background/fila-1-columna-91.jpg">
+		<img id="b92" src="./background/fila-1-columna-92.jpg"> 
+		<img id="b93" src="./background/fila-1-columna-93.jpg"> 
+		<img id="b94" src="./background/fila-1-columna-94.jpg">
+		<img id="b95" src="./background/fila-1-columna-95.jpg"> 
+		<img id="b96" src="./background/fila-1-columna-96.jpg"> 
+		<img id="b97" src="./background/fila-1-columna-97.jpg"> 
+		<img id="b98" src="./background/fila-1-columna-98.jpg"> 
+		<img id="b99" src="./background/fila-1-columna-99.jpg"> 
+		<img id="b100" src="./background/fila-1-columna-100.jpg">
+		<img id="b101" src="./background/fila-1-columna-101.jpg"> 
+		<img id="b102" src="./background/fila-1-columna-102.jpg"> 
+		<img id="b103" src="./background/fila-1-columna-103.jpg">
+		<img id="b104" src="./background/fila-1-columna-104.jpg"> 
+		<img id="b105" src="./background/fila-1-columna-105.jpg"> 
+		<img id="b106" src="./background/fila-1-columna-106.jpg"> 
+		<img id="b107" src="./background/fila-1-columna-107.jpg"> 
+		<img id="b108" src="./background/fila-1-columna-108.jpg"> 
+		<img id="b109" src="./background/fila-1-columna-109.jpg"> 
+		<img id="b110" src="./background/fila-1-columna-110.jpg"> 
+		<img id="b111" src="./background/fila-1-columna-111.jpg">
+		<img id="b112" src="./background/fila-1-columna-112.jpg"> 
+		<img id="b113" src="./background/fila-1-columna-113.jpg"> 
+		<img id="b114" src="./background/fila-1-columna-114.jpg">
+		<img id="b115" src="./background/fila-1-columna-115.jpg"> 
+		<img id="b116" src="./background/fila-1-columna-116.jpg"> 
+		<img id="b117" src="./background/fila-1-columna-117.jpg"> 
+		<img id="b118" src="./background/fila-1-columna-118.jpg"> 
+		<img id="b119" src="./background/fila-1-columna-119.jpg"> 
+		<img id="b120" src="./background/fila-1-columna-120.jpg"> 
+		
+		
+		<img id="astro1" src="./astronaranja/Astro1.png"> 
+		<img id="astro2" src="./astronaranja/Astro2.png"> 
+		<img id="astro3" src="./astronaranja/Astro3.png"> 
+		<img id="astro4" src="./astronaranja/Astro4.png"> 
+		
+		<img id="astro1Green" src="./astroverde/Astro1Green.png"> 
+		<img id="astro2Green" src="./astroverde/Astro2Green.png"> 
+		<img id="astro3Green" src="./astroverde/Astro3Green.png"> 
+		<img id="astro4Green" src="./astroverde/Astro4Green.png"> 
+		
+		<img id="meteorito" src="./meteorito/meteorito.png">
+		<img id="meteorito1" src="./meteorito/meteorito1.png">
+		<img id="meteorito2" src="./meteorito/meteorito2.png">
+		<img id="meteorito3" src="./meteorito/meteorito3.png">
+		<img id="meteorito4" src="./meteorito/meteorito4.png">
+		<img id="meteorito5" src="./meteorito/meteorito5.png">
+		<img id="meteorito6" src="./meteorito/meteorito6.png">
+		<img id="meteorito7" src="./meteorito/meteorito7.png">
+		<img id="meteorito8" src="./meteorito/meteorito8.png">
+		<img id="meteorito9" src="./meteorito/meteorito9.png">
+
+		<img id="ovni" src="./ovni/s0.png">
+		<img id="ovni1" src="./ovni/s1.png">
+		<img id="ovni2" src="./ovni/s2.png">
+		<img id="ovni3" src="./ovni/s3.png">
+		<img id="ovni4" src="./ovni/s4.png">
+		<img id="ovni5" src="./ovni/s5.png">
+		<img id="ovni6" src="./ovni/s6.png">
+		<img id="ovni7" src="./ovni/s7.png">
+		<img id="ovni8" src="./ovni/s8.png">
+		
+		<img id="imagenfinal" src="./imagenes/final_image.png">
+		<img id="go" src="./imagenes/gameover.png">
+		<img id="start_im" src="./imagenes/startimage.png">	
+		
+		<img id="selnaranja" src="./imagenes/naranja.png">
+		<img id="selverde" src="./imagenes/verde.png">
+	
+	</div>
+
+  	<!-- Contenido de la pestaña de Descripción del juego -->
+	
+		<!--Introducción y controles-->
+		<div id="Descripcion" class="tabcontent">
+			<div class="maquina"><br>17 de Agosto, 2087 </div>
+			<div class="maquina2"><br>La nave espacial ‘Libertfall’ despega de la Tierra en la misión ‘M310-x3’, con el objetivo de llevar provisiones 
+				al campamento base<br> establecido por los humanos en Marte.<br>
+				Tras varias semanas de viaje, por problemas técnicos, la nave se detiene en mitad de la ruta entre ambos planetas,
+				cerca de la estrella<br> comúnmente conocida como ‘Red’.<br>
+				Uno de los astronautas, encargado del mantenimiento del motor de la nave, tiene que salir para arreglar una pieza 
+				sin la que la nave no<br> podrá avanzar.<br>
+				Sin embargo, nada más salir, el cable que le une con sus compañeros se rompe, quedando flotando en medio del espacio.<br>
+				En un intento por volver a engancharse a la cuerda, aparece una lluvia de meteoritos y alienígenas que deberá esquivar para llegar<br>
+			</div>
+			<div class="maquina3">	
+				a la nave de nuevo...<br>
+			</div>
+
+			<div class="maquina2">
+				<h1>OBJETIVO DEL JUEGO</h1>
+				El protagonista de la historia deberá conseguir llegar de nuevo a la nave, pero para ello deberá esquivar todos los obstáculos 
+				que<br>encuentre, entre los que se encuentra una lluvia de meteoritos y una plaga de alienígenas que querrán acabar con él. <br>
+				<br>
+				<h1>CONTROLES</h1>
+				Para comenzar el juego, se debe presionar la barra espaciadora. Entonces,  comenzará el vídeo de introducción, tras el cual 
+				el jugador<br> podrá elegir qué color de traje de astronauta quiere ponerse para salir de la nave.<br>
+				<dl>
+					<dt>Movimiento del astronauta:<br></dt>
+					<dd>ARRIBA: tecla W<br></dd>
+					<dd>ABAJO: tecla S<br></dd>
+					<dd>DERECHA: tecla D<br></dd>
+					<dd>IZQUIERDA: tecla A<br></dd>
+					<dt><br>Controles adicionales:<br></dt>
+					<dd>Pausa: botón arriba a la derecha<br></dd>
+				</dl>
+			</div>
+		</div>
+	
+	
+	<!-- Contenido de la pestaña de Autores -->
+	
+		<!--Slider con imágenes y rol general de los autores-->
+		<div id="Autores" class="tabcontent">
+
+			<section id="slider">
+				<input type="radio" name="slider" id="s1" checked>
+				<input type="radio" name="slider" id="s2">
+				<input type="radio" name="slider" id="s3">
+				
+				<label for="s1" id="slide1"><img src="./imagenes/foto-adriana.jpg" alt="Adriana Fuertes">
+					<p>&nbsp;&nbsp;Adriana Fuertes Dom&iacutenguez<br>&nbsp;&nbsp;Desarrollo HTML/CSS<br>&nbsp;&nbsp;Diseño p&aacutegina web</p>
+				</label>
+				<label for="s2" id="slide2"><img src="./imagenes/foto-gabriel.jpg" alt="Gabriel Franco">
+					<p>&nbsp;&nbsp;Gabriel Franco Ferrer&iacutea<br>&nbsp;&nbsp;Desarrollo CSS/Javascript<br>&nbsp;&nbsp;Diseño juego</p>
+				</label>
+				<label for="s3" id="slide3"><img src="./imagenes/foto-mario.jpg" alt="Mario Roca">
+					<p>&nbsp;&nbsp;Mario Roca Lago<br>&nbsp;&nbsp;Desarrollo HTML/Javascript<br>&nbsp;&nbsp;Diseño juego</p>
+				</label>
+			</section>
+		
+		</div>
+	
+	
+  	<!-- Contenido de la pestaña de elementos Multimedia -->
+	
+		<div id="Multimedia" class="tabcontent">
+
+			<video width="640" height="360" autoplay>
+				<source src="http://localhost:9898" type="video/mp4">
+			</video>
+
+			<h4>Flujo multimedia insertado externamente mediante framework de Gstreamer + explicación 
+			<br><br>Pasos para ejecutar el flujo multimedia:
+			<br>1) Acceder a la carpeta de la página web desde la terminal de linux donde se encuentran los archivos de video a reproducirse y el archivo juegoweb.html
+			<br><br>2) Ejecutar un servidor de python con un puerto distinto a 9898, por ejemplo: 8888, 8080... Ejecutar el siguiente comando: python -m SimpleHTTPServer 8888
+			<br><br>3) Abrir la web desde la siguiente url: http://localhost:8888/juegoweb.html
+			<br><br>4) Ejecutar el archivo .sh (pipeline_vid.sh) que se encuentra en el directorio de la web, puede ejecutar este comando: ./pipeline_vid
+			<br><br>5) ¡Ya puede visualizar el stream!
+			<br><br>El efecto que hemos usado es un mixer que mezcla un vídeo con un fondo verde que usaremos como chroma y un vídeo de meteoritos que servirá de fondo.
+			<br><br>Para ello hemos utilizado dos tuberías que procesan los vídeos por separado con ! queue !. El vídeo del chroma (astronauta) añade un efecto que elimina el color verde.
+			<br>El efecto que usamos es ! alpha method = green !, luego hacemos un video convert y lo mezclamos. Y el otro vídeo lo decodificamos también en su tubería,
+			<br>luego le aplicamos el vídeo convert y lo mezclamos usando videomix con la otra tubería. Al final queda un flujo que le aplicamos una codificación:
+			<br>theoraenc ! oggmux. El comando para ejecutar el pipeline que
+se encuentra dentro del archivo sh es:<br><br>gst-launch-1.0 filesrc location=./aux.mp4 ! decodebin ! queue ! videoconvert ! videomixer name=mix sink_0::zorder=0 sink_1::zorder=1 ! videoconvert ! theoraenc ! oggmux ! tcpserversink host=127.0.0.1 port=9090 filesrc location=./astronaut.mp4 ! decodebin ! queue ! alpha method=green ! videoconvert ! mix. </h4>
+		</div>
+	
+	
+  	<!-- Contenido de la pestaña de Desarollo del juego -->
+	
+		<!--Cargos de cada miembro del grupo y tiempo empleado-->
+		<div id="Desarrollo" class="tabcontent">
+		
+		<!-- Resumen de toda la organización del proyecto -->
+		<dl>
+		<br><h1>DIARIO DE TRABAJO</h1>
+		&nbsp;&nbsp;&nbsp;&nbsp;<h2><dd>SEMANA 0 (23 Febrero - 2 Marzo)</h2></dd>
+			<h4>
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reunión del equipo para la lectura inicial del proyecto, con una posterior lluvia de ideas acerca de la temática del juego y la forma de trabajo.
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se decide que el juego será una variante de un juego tipo 'runner', con temática espacial y tres niveles.
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este proceso solo participan Adriana Fuertes, Mario Roca y Gabriel Franco, quedando a la espera de que el cuarto componente asignado del equipo
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;se ponga en contacto con los integrantes para comenzar a trabajar, dando una semana de margen para su incorporación y comenzar el desarrollo. 
+			</h4><br>
+		<h2><br>&nbsp;&nbsp;&nbsp;&nbsp;<dd>SEMANA 1 (2 Marzo - 9 Marzo)</h2></dd>
+		<h4>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tras una semana sin recibir contestación por parte del cuarto integrante, se realiza una reunión para establecer los principales milestones del 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proyecto, así como de las fechas estimadas de finalización. 
+		<br>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**MILESTONES**
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Creación página web HTML básica donde poder comenzar a implementar mejoras:
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Creación de las pestañas 'Juego', 'Descripción', 'Autores', 'Multimedia', 'Desarrollo' y 'Referencias'.
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Implementación de un CANVAS en la pestaña 'Juego'.
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Selección de la estética:
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Estilo del juego (sprites, background, contenido multimedia).
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Estilo de la página (CSS: colores, estilo de las pestañas, tipografía).
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Desarrollo del juego:
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Selección de personaje inicial (entre dos opciones).
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Desarrollo del nivel inicial
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Creación de los obstáculos (meteoritos).
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Colisiones entre los obstáculos y el personaje controlado por el jugador.
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Desarrollo de los niveles 2 y 3:
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nivel 2: sustituir los meteoritos anteriores por naves espaciales con un movimiento oscilante vertical
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nivel 3: combinar los dos anteriores niveles, añadiendo complejidad.
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Implementación de botones recurso:
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Botón 'SKIP' (para poder adelantar el contenido audiovisual mostrado a lo largo del juego).
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Botón 'PAUSE' (para poder para el juego en cualquier momento).
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Botón 'CONTINUE' (para poder continuar jugando).
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Botón 'RESTART' (para volver a jugar en caso de haber perdido o ganado la partida).
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Título de la página web:
+					<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Integración de un título dinámico.
+					<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Header e icono de la página web.
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pestañas:
+					<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Descripción: idea original del juego, objetivo del mismo, funcionamiento.
+					<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Autores: presentación de los miembros del equipo con algún elemento dinámico.
+					<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Desarrollo: diario de trabajo, especificaciones temporales y técnicas.
+					<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Referencias: enlaces a páginas externas con los recursos audiovisuales, teóricos y técnicos utilizados.
+				
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Durante esta semana se realiza la creación de una página web HTML básica en la que poder trabajar, con la implementación de
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;las pestañas, la inserción del canvas con elementos de prueba provisionales y la idea original del juego, con las especificaciones
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;de los niveles.
+		</h4>
+		<h2>
+		<br>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;<dd>SEMANA 2 (9 Marzo - 16 Marzo)</h2></dd>
+		<h4>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Durante esta semana se decide comenzar por el juego, ya que estimamos que será la parte que más tiempo nos va a ocupar. 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comenzamos a desarrollar el nivel inicial del juego, buscando, seleccionando y creando los sprites utilizados en el background, el astronauta y	
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;el meteorito de forma que encajen en el estilo de juego decidido y queden lo más fuido posible dentro del juego. 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Además, se seleccionan los vídeos que serán integrados en el juego entre páginas sin copyright para poder trabajar con ellos de forma gratuita y
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libre de derechos. 
+		<br></h4>
+		<h2>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;<dd>SEMANA 3 (16 Marzo - 23 Marzo)</h2></dd>
+		<h4>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creación de un elemento que se genera de manera aleatoria tanto en tamaño como en velocidad, siendo aleatorios también los tiempos de aparición y 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;las alturas desde las que aparecen. Este elemento será usado en el nivel inicial para generar los diferentes obstáculos (meteoritos) que el jugador
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a través de su personaje deberá esquivar.
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;También se establecen los controles que utilizará el jugador para controlar al personaje, creando los eventos de escucha cuando el usuario pulsa las
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;teclas establecidas. 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este punto encontramos dos problemas:
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	- Background: como decidimos usar varias imágenes de fondo que simulasen un desplazamiento en el eje X, observamos que con la cantidad de 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	imágenes cargadas no conseguimos la fluidez deseada. Para conseguirlo, aumentamos considerablemente la cantidad de imágenes, editando la 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	última para poder solaparla con la primera y no haya un efecto de 'salto' cada cierto tiempo. 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	- Teclas: como los controles que habíamos elegidos correspondían con las flechas del teclado del ordenador, la página web también se desplazaba	
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	así que decidimos cambiar dichos controles por las teclas A, S, D, W, consiguiendo que la pantalla no se desplazase al accionarlos. 
+		<br></h4>
+		<h2>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;<dd>SEMANA 4 (23 Marzo - 30 Marzo)</h2></dd>
+		<h4>
+		<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Programación de la función que se ocupará de las colisiones del personaje con los diferentes obstáculos, añadiéndole un sonido de colisión y 
+		<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;termimando el juego en ese momento.
+		<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Durante esta semana también se incluye la página donde el usuario va a poder elegir el personaje con el que quiere jugar (dos opciones: astronauta
+		<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;naranja y verde), con las correspondientes áreas de selección. 
+		<br>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este punto nos encontramos con el siguiente problema:
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	- Reconocimiento de la colisión: al generarse aleatoriamente todos los obstáculos (meteoritos), no podíamos establecer una condición de colisión
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	común para todos, ya que en los obstáculos pequeños el efecto sería que llega a meterse dentro del personaje, y en el caso de los obstáculos
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	grandes quedarían muy lejos como para poder considerarlo una colisión. Para poder solucionarlo, implementamos una función que calculase el centro
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	del obstáculo, y otra que calculase el módulo entre el centro del personaje y del obstáculo, imponiendo en nuestra función dedicada a las
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	colisiones que ese módulo debería ser menor que un cierto valor para considerarse la colisión, consiguiendo que este método ya fuese válido para
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	cualquier tamaño de obstáculo.
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	- Teclas: queremos conseguir un movimiento más fluido del personaje, cosa que no conseguimos con los eventos que hemos programado 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	(keypressed).
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Para solventarlo utlizamos los eventos 'keydown' y 'keyup', con lo que conseguimos el efecto deseado.
+		<br></h4>
+		<h2>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;<dd>SEMANA 5 (30 Marzo - 6 Abril)</h2></dd>
+		<h4>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Al ya tener el primer nivel del juego completado (controles personaje, generación aleatoria de obstáculos, colisiones), decidimos avanzar con la página 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	web
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	y con el flujo multimedia que queremos añadir anterior al juego. Se da estilo CSS a las páginas de desarrollo y descripción del juego, con la tipografía
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	y la animación de escritura de máquina de escribir, además de establecer el color de fondo de la página y de las pestañas.
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Insertamos el vídeo introductorio (vídeo 1), para que se reproduzca nada más cargar la pestaña del juego. 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	En este punto nos encontramos con el siguiente problema:
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - El parámetro 'autoplay' que le añadimos a la reproducción del vídeo para conseguir que se reproduzca nada más cargue la página, hace que se
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reproduzca únicamente el vídeo, no escuchándose el audio correspondiente. Para intentar solucionarlo, probamos separar el audio del vídeo,
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dotándoles a ambos del parámetro 'autoplay', pero seguimos sin conseguir el efecto deseado. Tras muchos intentos, averiguamos que tanto Chrome
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; como otros navegadores no suprimieron dicha funcionalidad en sus páginas, para no ser invasivo con el usuario. Por tanto, decidimos insertar 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; al principio una pantalla con la que el usuario interaccionase, para después ya reproducir el vídeo introductorio. Dicha interacción es un
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; evento escuchador de la tecla espaciadora del teclado, accionándose el vídeo cuando es pulsada por el usuario.
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Durante esta semana también se diseñan las diferentes páginas utilizadas en el flow del juego (inicio, explicación, niveles 1,2 y 3, game over).
+		<br></h4>
+		<h2>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;<dd>SEMANA 6 (6 Abril - 13 Abril)</h2></dd>
+		<h4>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez ya tenemos la primera pantalla, seguida de un vídeo y posteriormente del juego con sonido, decidimos crear los otros dos niveles a partir del
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;código que ya tenemos hecho, y poder modificarlo en función de los diferentes requerimientos que establecimos en las primeras semanas. 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Además, incluimos otros vídeos entre los diferentes niveles para poder diferenciarlos entre ellos. Realizamos el código para que en el nivel 2 los
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obstáculos a esquivar sean naves alielígenas con una oscilación vertical, siendo más complicada la tarea de esquivarlos. En el nivel 3 realizamos
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;una combinación de los niveles 1 y 2, apareciendo en la misma pantalla tanto los meteoritos como las naves, debiendo el usuario esquivarlos.
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Durante esta semana, respecto al juego, también se implementan los diferentes botones estipulados en los milestones que afectan tanto al flujo 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;multimedia como al juego. 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Respecto a la página web, durante esta semana se realiza el título de la página con el elemento móvil de la 'U' del título. También se establece la
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tipografía de varios elementos (de la página y del juego). 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;En este punto encontramos los siguientes problemas: 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	- Botones: el evento 'click' no nos proporcionaba las coordenadas exactas del botón dentro del canvas, ya que consideraba las coordenadas de
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	la página web al completo. Para solucionarlo, eliminamos de nuestras coordenadas las partes que no pertenecían al canvas, consiguiendo la
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	ubicación exacta que estábamos buscando. 
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    - Imágenes: como había ciertas imágenes que queríamos que se manteniesen en pantalla un tiempo determinado, y no queríamos añadir muchas más
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    variables globales al código que pudieran calcular y almacenar distintos tiempos, decidimos convetir las imágenes de transición (niveles,
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    explicación), a vídeos con la duración necesaria para poder leer el contenido, con sus correspondientes botones de 'SKIP'.
+			<br>
+		</h4>
+		<h2>
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;<dd>SEMANA 7 (13 Abril - 20 Abril)</h2></dd>
+		<h4>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Al ser esta la última semana de desarrollo de la primera parte del proyecto, comenzamos a corregir errores que hemos ido percibiendo (aparición de
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;franja negra en la parte inferior de los contenidos multimedia dentro del juego), realizando cambios de estilo de algunos elementos (sobre todo la 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apariencia de los botones y el texto que contenían) y añadiendo las últimas funcionalidades que queríamos conseguir (pestaña de autores, pestaña de 
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desarrollo del juego, adaptabilidad de la página a pantallas de diferentes tamaños).
+		</h4>
+		</dl>
+		
+		<!-- Tabla con la distribución de tareas -->
+		<br><h1>DISTRIBUCIÓN DE TAREAS</h1>
+		<table class = "table"> 
+			<tr>
+				<th> TAREA </th>
+				<th> SEMANA </th>
+				<th> DESARROLLADOR </th>
+				<th> LENGUAJE </th>
+			</tr>
+
+			<tr>
+				<td> Página HTML básica </td>
+
+				<td> 1 </td>
+
+				<td> Mario, Adriana, Gabriel </td>
+
+				<td> HTML </td>
+			</tr>
+
+			<tr>
+				<td> Implementación pestañas web </td>
+
+				<td> 1 </td>
+
+				<td> Adriana </td>
+
+				<td> HTML, CSS, Javascript </td>
+
+			</tr>
+
+			<tr>
+				<td> Implementación Canvas </td>
+
+				<td> 1 </td>
+
+				<td> Mario </td>
+
+				<td> Javascript </td>
+			</tr>
+
+
+			<tr>
+				<td> Desarrollo idea original, guión, niveles </td>
+
+				<td> 1 </td>
+
+				<td> Gabriel </td>
+
+				<td> - </td>
+			</tr>
+
+			<tr>
+				<td> Sprites background y personajes </td>
+
+				<td> 2 </td>
+
+				<td> Mario y Gabriel </td>
+
+				<td> HTML, Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Selección contenido multimedia (vídeos, sonidos, música) </td>
+
+				<td> 2 </td>
+
+				<td> Gabriel </td>
+
+				<td> - </td>
+			</tr>
+
+			<tr>
+				<td> Función elemento </td>
+
+				<td> 3 </td>
+
+				<td> Mario </td>
+
+				<td> Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Controles de juego </td>
+
+				<td> 3 </td>
+
+				<td> Mario y Gabriel </td>
+
+				<td> Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Colisiones </td>
+
+				<td> 4 </td>
+
+				<td> Adriana, Mario y Gabriel </td>
+
+				<td> Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Selección personaje </td>
+
+				<td> 4 </td>
+
+				<td> Mario y Gabriel </td>
+
+				<td> Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Diseño pestañas Desarrollo y Descripción del juego </td>
+
+				<td> 5 </td>
+
+				<td> Adriana </td>
+
+				<td> HTML, CSS </td>
+			</tr>
+			<tr>
+				<td> Vídeo introductorio </td>
+
+				<td> 5 </td>
+
+				<td> Mario y Gabriel </td>
+
+				<td> HTML y Javascript </td>
+			</tr>
+			<tr>
+				<td> Diseño transiciones </td>
+
+				<td> 5 </td>
+
+				<td> Gabriel </td>
+
+				<td> - </td>
+			</tr>
+			<tr>
+				<td> Implementación transiciones inicio, game over </td>
+
+				<td> 5 </td>
+
+				<td> Adriana y Mario </td>
+
+				<td> Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Niveles 2 y 3 </td>
+
+				<td> 6 </td>
+
+				<td> Mario y Gabriel </td>
+
+				<td> Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Vídeos transitorios </td>
+
+				<td> 6 </td>
+
+				<td> Mario </td>
+
+				<td> Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Botones del juego </td>
+
+				<td> 6 </td>
+
+				<td> Adriana, Mario y Gabriel </td>
+
+				<td> Javascript, CSS </td>
+			</tr>
+
+			<tr>
+				<td> Título dinámico web </td>
+
+				<td> 6 </td>
+
+				<td> Adriana </td>
+
+				<td> HTML, CSS </td>
+			</tr>
+
+			<tr>
+				<td> Diseño y contenido Pestañas Autores y Referencias </td>
+
+				<td> 7 </td>
+
+				<td> Adriana </td>
+
+				<td> HTML, CSS </td>
+			</tr>
+
+			<tr>
+				<td> Pestaña Desarrollo Juego </td>
+
+				<td> 7 </td>
+
+				<td> Adriana y Gabriel </td>
+
+				<td> HTML, CSS </td>
+			</tr>
+
+			<tr>
+				<td> Ajuste canvas a la ventana </td>
+
+				<td> 7 </td>
+
+				<td> Adriana, Mario y Gabriel </td>
+
+				<td> Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Correcciones juego </td>
+
+				<td> 7 </td>
+
+				<td> Mario </td>
+
+				<td> Javascript </td>
+			</tr>
+
+			<tr>
+				<td> Diario de trabajo </td>
+
+				<td> 7 </td>
+
+				<td> Gabriel </td>
+
+				<td> HTML </td>
+			</tr>
+
+
+			<tr>
+				<td> Diseño página </td>
+
+				<td> 7 </td>
+
+				<td> Adriana y Gabriel </td>
+
+				<td> CSS </td>
+			</tr>
+		</table>
+
+		<!-- Tiempo estimado y real del proyecto -->
+		<br><h1>TIEMPO</h1>
+		<h4>
+				&nbsp;&nbsp;&nbsp;HTML<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo estimado: 4 horas<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo final: 7 horas<br>
+
+				<br>&nbsp;&nbsp;&nbsp;CSS<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo estimado: 4 horas<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo final: 9 horas<br>
+
+				<br>&nbsp;&nbsp;&nbsp;Javascript<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo estimado: 12 horas<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tiempo final: 28 horas<br>
+
+
+				<br><h1>¿Por qué destaca nuestro proyecto?</h1>
+				<h4>
+				Entre otras características más comunes, nuestro proyecto destaca por:<br>
+				<dl>
+				<dd>Cada vez que juegas, el juego es totalmente distinto, no repitiendose los tamaños, frecuencias ni velocidades de los obstáculos a esquivar, dado que
+				todos ellos están diseñados de forma completamente aleatoria. Esto dota al juego de un mayor dinamismo. </dd>
+				<dd>El título de la página web es dinámico, de tal forma que siempre está en movimiento, aunque se esté desarrollando el juego. </dd>
+				<dd>Consonancia estilísitica en todos los elementos del proyecto: temática, tipografía, contenido multimedia, guión y desarrollo. </dd>
+				<dd>Adaptabilidad de la página, juego y sus elementos a distintos tamaños de ventana. </dd>
+			<dl>
+		</h4>
+	</div>
+	
+	
+  	<!-- Contenido de la pestaña de Referencias -->
+	
+		<!--Botones a cada referencia utlizada-->
+		<div id="Referencias" class="tabcontent">
+			<div class="boton-ref">
+				<button onclick="window.open('https://www.artstation.com/artwork/288Lyx')">Sprite astronauta</button>
+				<button onclick="window.open('https://www.cleanpng.com/png-astronaut-drawing-royalty-free-astronauta-ni-ntild-5585063/')">Imagen astronauta final</button>
+				<button onclick="window.open('https://www.freepng.es/png-kcvzdm/')">Sprite meteorito</button>
+			</div>
+			<div class="boton-ref">
+				<button onclick="window.open('https://stock.adobe.com/es/search?k=cartoon+space&search_type=recentsearch&asset_id=289726988')">Imagen fondo</button>
+				<button onclick="window.open('https://www.pexels.com/es-es/video/nubes-galaxy-via-lactea-estrellas-9341428/')">Fondo elección traje</button>		
+				<button onclick="window.open('https://www.pexels.com/es-es/video/lanzamiento-del-transbordador-espacial-854252/')">V&iacutedeo inicial</button>
+			</div>
+			<div class="boton-ref">	
+				<button onclick="window.open('https://www.pexels.com/es-es/video/espacio-exterior-856309/')">V&iacutedeo nivel 3</button>
+				<button onclick="window.open('https://www.w3schools.com/graphics/game_intro.asp')">Ejemplos juego</button>
+				<button onclick="window.open('http://html5doctor.com/video-canvas-magic/')">Insertar v&iacutedeo en canvas</button>
+			</div>
+			<div class="boton-ref">
+				<button onclick="window.open('https://stackoverflow.com/questions/55677/how-do-i-get-the-coordinates-of-a-mouse-click-on-a-canvas-element')">Coordenadas en canvas</button>
+				<button onclick="window.open('https://codepen.io/ricardoolivaalonso/pen/wvvGoeY')">Letras t&iacutetulo</button>
+				<button onclick="window.open('https://codepen.io/denic/pen/GRoOxbM')">Texto a m&aacutequina</button>
+			</div>
+			<div class="boton-ref">
+				<button onclick="window.open('https://www.fiftysounds.com/es/musica-libre-de-derechos/sfx-impacto-horror.html')">Sonido impacto</button>
+				<button onclick="window.open('https://www.fiftysounds.com/es/musica-libre-de-derechos/en-la-memoria.html')">M&uacutesica piano</button>
+				<button onclick="window.open('https://dev.to/shantanu_jana/3d-image-slider-using-html-css-328b')">Slider im&aacutegenes</button>
+			</div>
+			<div class="boton-ref">
+				<button onclick="window.open('http://w3.unpocodetodo.info/canvas/responsive.php')">Ajuste canvas</button>
+				<button onclick="window.open('https://programacion.net/articulo/como_utilizar_la_page_visibility_api_de_html5_1393')">Page visibility API</button>
+			</div>
+		</div>
+	
+</body>
+</html>
